@@ -1,0 +1,174 @@
+.container {
+  width: 90%;
+  padding: 20px;
+  height: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: space-evenly;
+}
+
+h2 {
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+/* STACK and VARIABLES */
+
+.stack-variable-container {
+  background-color: rgb(250, 250, 250);
+  width: 25%;
+  height: 90%;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px 5px rgb(240, 210, 210);
+}
+.stack {
+  width: 20%;
+}
+.stack-variable {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.stack-variable div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 50px;
+  border: 3px solid rgb(216, 216, 216);
+  padding: 5px;
+  border-radius: 6px;
+  opacity: 0%;
+}
+
+.stack-variable div:hover {
+  cursor: pointer;
+  border: 3px solid rgb(187, 187, 187);
+}
+.fullOpak {
+  opacity: 100%;
+}
+.green-border {
+  box-shadow: 0px 1px 2px 5px rgb(189, 219, 183);
+}
+
+/* HEAP */
+.heapContainer {
+  background-color: rgb(247, 247, 247);
+  width: 35%;
+  height: 90%;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px 5px rgb(194, 215, 233);
+}
+
+.heap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.heap div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 75px;
+  border: 3px solid rgb(216, 216, 216);
+  padding: 5px;
+  border-radius: 6px;
+}
+.heap div:hover {
+  cursor: pointer;
+  border: 3px solid rgb(187, 187, 187);
+}
+
+.varType {
+  font-weight: bold;
+  font-size: 24px;
+  color: rgb(201, 5, 5);
+}
+.varName {
+  font-weight: lighter;
+  font-size: 22px;
+  color: rgb(87, 87, 233);
+}
+.equalsOP {
+  font-weight: bold;
+  font-size: 18px;
+}
+.varValue {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.controls {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.btn {
+  color: rgb(250, 250, 250);
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.next {
+  background-color: rgb(8, 180, 8);
+}
+.next:hover {
+  background-color: rgb(9, 153, 9);
+}
+.prev {
+  background-color: rgb(8, 180, 8);
+}
+.prev:hover {
+  background-color: rgb(9, 153, 9);
+}
+
+.var-item-1 {
+  background-color: rgb(184, 236, 221);
+}
+.stack-item-4 {
+  background-color: rgb(184, 236, 221);
+}
+
+.var-item-2 {
+  background-color: rgb(182, 215, 235);
+}
+.stack-item-3 {
+  background-color: rgb(182, 215, 235);
+}
+
+.var-item-5 {
+  background-color: rgb(182, 190, 235);
+}
+.stack-item-2 {
+  background-color: rgb(182, 190, 235);
+}
+
+.var-item-6 {
+  background-color: rgb(193, 182, 235);
+}
+.stack-item-1 {
+  background-color: rgb(193, 182, 235);
+}
