@@ -104,10 +104,26 @@
         <div class="heapContainer">
             <h2 class="heapTitle">HEAP</h2>
             <div class="heap">
-                <div class="heap-item-1">id = 5</div>
-                <div class="heap-item-2">age = 25</div>
-                <div class="heap-item-3">old = true</div>
-                <div class="heap-item-4">price = 10.10</div>
+                <div class="heap-item-1">
+                    <div>
+                        <h1>[Adress: 101]</h1>
+                    </div>
+                    <div>
+                        <p>
+                            [1, 3, 5, 7, 9]
+                        </p>
+                    </div>
+                </div>
+                <div class="heap-item-2">
+                    <div>
+                        <h1>[Adress: 102]</h1>
+                    </div>
+                    <div>
+                        <p>
+                            [10, 30, 50, 70, 90]
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -118,61 +134,104 @@
             <span>
                 &lt;
             </span>
-            PREVIOUS
+            Önceki Adım
         </div>
         <div class="github">
-            <h2>EmirS <a href="#"><i class="fa fa-github" style="font-size:48px"></i></a></h2>
+            <h2>EmirS <a href="https://github.com/EmirS4h"><i class="fa fa-github ico" style="font-size:48px"></i></a>
+            </h2>
         </div>
         <div class="next btn">
-            NEXT
+            Sonraki Adım
             <span>&gt;</span>
         </div>
     </div>
 
     <script src="anime.min.js"></script>
     <script>
-
+        const gitLogo = document.querySelector(".ico");
+        const sayi1 = document.querySelector(".stack-item-4");
+        let sayi1Changed = false;
+        const sayi2 = document.querySelector(".stack-item-3");
+        let sayi2Changed = false;
         const nextBtn = document.querySelector(".next");
         const prevBtn = document.querySelector(".prev");
 
         let varDivsCounter = 0;
         let stackDivsCounter = 0;
+        let heapDivsCounter = 0;
 
         const varDivs = document.querySelectorAll(".varDivs div");
         const stackDivs = document.querySelectorAll(".stackDivs div");
+        const heapItemOne = document.querySelector(".heap-item-1");
+        const heapItemTwo = document.querySelector(".heap-item-2");
+        const heapItemTwoP = document.querySelector(".heap-item-2 p");
+        const stackItemOne = document.querySelector(".stack-item-1");
+        const stackItemTwo = document.querySelector(".stack-item-2");
+
+        let heapItemOneUpdated = false;
+        let heapItemTwoUpdated = false;
 
         stackDivsCounter = stackDivs.length - 1;
 
-        console.log("StackDivsCounter : " + stackDivsCounter);
-
         nextBtn.addEventListener("click", () => {
+
             animateVarsUp();
-
-            animateStackUp();
-
+            if (varDivsCounter === 2 || varDivsCounter === 3 || varDivsCounter === 6 || varDivsCounter === 7) {
+                if (varDivsCounter === 2) {
+                    changeSayi1();
+                } else if (varDivsCounter === 3) {
+                    changeSayi2();
+                }
+            } else {
+                animateStackUp();
+                checkStackDivsCounterBoundries();
+                stackDivsCounter--;
+            }
+            if (varDivsCounter === 4) {
+                showHeapItem1();
+            }
+            if (varDivsCounter === 5) {
+                showHeapItem2();
+            }
+            if (varDivsCounter === 6) {
+                updateHeapItemOne();
+            }
+            if (varDivsCounter === 7) {
+                updateHeapItemTwo();
+            }
             checkVarDivsCounterBoundries();
-            checkStackDivsCounterBoundries();
-
             varDivsCounter++;
-            stackDivsCounter--;
-            console.log("NextBtn VarDivsCounter: " + varDivsCounter);
-            console.log("NextBtn StackDivsCounter: " + stackDivsCounter);
         })
 
         prevBtn.addEventListener("click", () => {
             varDivsCounter--;
-            stackDivsCounter++;
 
             animateVarsDown();
 
-            animateStackDown();
-
+            if (varDivsCounter === 2 || varDivsCounter === 3 || varDivsCounter === 6 || varDivsCounter === 7) {
+                if (varDivsCounter === 2) {
+                    changeSayi1();
+                } else if (varDivsCounter === 3) {
+                    changeSayi2();
+                }
+            } else {
+                stackDivsCounter++;
+                animateStackDown();
+                checkStackDivsCounterBoundries();
+            }
+            if (varDivsCounter === 5) {
+                hideHeapItem2();
+            }
+            if (varDivsCounter === 4) {
+                hideHeapItem1();
+            }
+            if (varDivsCounter === 6) {
+                updateHeapItemOne();
+            }
+            if (varDivsCounter === 7) {
+                updateHeapItemTwo();
+            }
             checkVarDivsCounterBoundries();
-            checkStackDivsCounterBoundries();
-
-
-            console.log("PrevBtn VarDivsCounter: " + varDivsCounter);
-            console.log("PrevBtn StackDivsCounter: " + stackDivsCounter);
         })
 
         function checkVarDivsCounterBoundries() {
@@ -220,6 +279,136 @@
                 duration: "1000",
             })
         }
+
+        function changeSayi1() {
+            if (!sayi1Changed) {
+                sayi1.textContent = "20";
+                anime({
+                    targets: stackDivs[3],
+                    scale: ["70%", "100%"],
+                    duration: "500",
+                })
+                sayi1Changed = true;
+            } else {
+                sayi1.textContent = "10";
+
+                anime({
+                    targets: stackDivs[3],
+                    scale: ["70%", "100%"],
+                    duration: "500",
+                })
+                sayi1Changed = false;
+            }
+        }
+        function changeSayi2() {
+            if (!sayi2Changed) {
+                sayi2.textContent = "100";
+                anime({
+                    targets: stackDivs[2],
+                    scale: ["70%", "100%"],
+                    duration: "500",
+                })
+                sayi2Changed = true;
+            } else {
+                sayi2.textContent = "20";
+                anime({
+                    targets: stackDivs[2],
+                    scale: ["70%", "100%"],
+                    duration: "500",
+                })
+                sayi2Changed = false;
+            }
+        }
+        function showHeapItem1() {
+            anime({
+                targets: heapItemOne,
+                opacity: ["0%", "100%"],
+                duration: "1000",
+            });
+        }
+        function hideHeapItem1() {
+            anime({
+                targets: heapItemOne,
+                opacity: ["100%", "0%"],
+                duration: "1000",
+            })
+        }
+
+        function showHeapItem2() {
+            anime({
+                targets: heapItemTwo,
+                opacity: ["0%", "100%"],
+                duration: "1000",
+            });
+        }
+        function hideHeapItem2() {
+            anime({
+                targets: heapItemTwo,
+                opacity: ["100%", "0%"],
+                duration: "1000",
+            });
+        }
+        function updateHeapItemOne() {
+            if (!heapItemOneUpdated) {
+                anime({
+                    targets: heapItemOne,
+                    scale: ["50%", "100%"],
+                    opacity: ["100%", "10%"],
+                    duration: "500",
+                });
+                anime({
+                    targets: stackItemTwo,
+                    scale: ["70%", "100%"],
+                    duration: "500",
+                })
+                stackItemTwo.textContent = "102";
+                heapItemOneUpdated = true;
+            } else {
+                anime({
+                    targets: heapItemOne,
+                    scale: ["50%", "100%"],
+                    opacity: ["10%", "100%"],
+                    duration: "500",
+                });
+                anime({
+                    targets: stackItemTwo,
+                    scale: ["70%", "100%"],
+                    duration: "500",
+                })
+                stackItemTwo.textContent = "101";
+                heapItemOneUpdated = false;
+            }
+        }
+
+        function updateHeapItemTwo() {
+            if (!heapItemTwoUpdated) {
+                heapItemTwoP.textContent = "[1000, 30, 50, 70, 90]";
+                anime({
+                    targets: heapItemTwo,
+                    scale: ["50%", "100%"],
+                    duration: "500",
+                });
+                heapItemTwoUpdated = true;
+            } else {
+                heapItemTwoP.textContent = "[10, 30, 50, 70, 90]";
+                anime({
+                    targets: heapItemTwo,
+                    scale: ["50%", "100%"],
+                    duration: "500",
+                });
+                heapItemTwoUpdated = false;
+            }
+        }
+
+        const logoAnim = anime({
+            targets: gitLogo,
+            rotate: "360",
+            scale: ["50%", "100%"],
+            duration: "1000",
+        });
+        gitLogo.addEventListener("mouseover", () => {
+            logoAnim.play();
+        })
     </script>
 </body>
 
