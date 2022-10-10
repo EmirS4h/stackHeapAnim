@@ -104,6 +104,7 @@
         <div class="heapContainer">
             <h2 class="heapTitle">HEAP</h2>
             <div class="heap">
+                <h3 class="gc"></h3>
                 <div class="heap-item-1">
                     <div>
                         <h1>[Adress: 101]</h1>
@@ -167,7 +168,7 @@
         const heapItemTwoP = document.querySelector(".heap-item-2 p");
         const stackItemOne = document.querySelector(".stack-item-1");
         const stackItemTwo = document.querySelector(".stack-item-2");
-
+        const gc = document.querySelector(".gc");
         let heapItemOneUpdated = false;
         let heapItemTwoUpdated = false;
 
@@ -361,6 +362,7 @@
                     scale: ["70%", "100%"],
                     duration: "500",
                 })
+                gc.textContent = "Java Garbage Collecter tarafından temizlendi";
                 stackItemTwo.textContent = "102";
                 heapItemOneUpdated = true;
             } else {
@@ -375,6 +377,7 @@
                     scale: ["70%", "100%"],
                     duration: "500",
                 })
+                gc.textContent = "";
                 stackItemTwo.textContent = "101";
                 heapItemOneUpdated = false;
             }
