@@ -1,5 +1,5 @@
 .container {
-  width: 90%;
+  width: 95%;
   padding: 20px;
   height: 800px;
   margin: auto;
@@ -17,7 +17,11 @@ h2 {
   text-align: center;
   letter-spacing: 3px;
 }
-
+.newKeyword {
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(251, 255, 5);
+}
 /* STACK and VARIABLES */
 
 .stack-variable-container {
